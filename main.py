@@ -27,6 +27,7 @@ def create():
             return redirect(url_for("create_donation", donor_name=donor.name))
     else:
         return render_template('create.jinja2')   
+
 @app.route('/create/<donor_name>', methods=["GET", "POST"])
 def create_donation(donor_name):
     if request.method == "POST":
@@ -38,6 +39,7 @@ def create_donation(donor_name):
         return render_template('create_donation.jinja2')   
    
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    # port = int(os.environ.get("PORT", 5000))
+    # app.run(host='127.0.0.1', port=port)
+    port = int(os.environ.get("PORT", 6738))
     app.run(host='127.0.0.1', port=port)
-
